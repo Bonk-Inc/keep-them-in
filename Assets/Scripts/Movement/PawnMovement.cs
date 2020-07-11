@@ -5,22 +5,11 @@ public class PawnMovement : MonoBehaviour
 {
     [SerializeField]
     private NavMeshAgent navMeshAgent;
-    private Vector3 fixedDestenation;
+    private Vector3 fixedDestination;
 
     private void Awake() {
-        fixedDestenation = new Vector3(Random.Range(-50, 50), transform.position.y, Random.Range(-50, 50));
-        if (fixedDestenation.x < 20 && fixedDestenation.x > 0) {
-            fixedDestenation.x = 20;
-        }
-        if (fixedDestenation.z < 20 && fixedDestenation.z > 0) {
-            fixedDestenation.z = 20;
-        }
-        if (fixedDestenation.x > -20 && fixedDestenation.x < 0) {
-            fixedDestenation.x = -20;
-        }
-        if (fixedDestenation.z > -20 && fixedDestenation.z < 0) {
-            fixedDestenation.z = -20;
-        }
+        fixedDestination = new Vector3(Random.Range(-100, 100), transform.position.y, Random.Range(-100, 100));
+        fixedDestination = fixedDestination.normalized * 50;
     }
 
     private void FixedUpdate() {
@@ -30,7 +19,7 @@ public class PawnMovement : MonoBehaviour
     }
 
     public void GoToDestenation() {
-        SetDestination(fixedDestenation);
+        SetDestination(fixedDestination);
     }
 
     public void SetDestination(Vector3 destination) {
