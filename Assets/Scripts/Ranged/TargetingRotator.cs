@@ -10,6 +10,9 @@ public class TargetingRotator : MonoBehaviour
     [SerializeField]
     private GameObject target;
 
+    [SerializeField]
+    private float rotationSpeed = Mathf.Infinity;
+
     private void Awake()
     {
         targeter.OnTargetChanged += SetTarget;
@@ -20,7 +23,9 @@ public class TargetingRotator : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, (target.transform.position - transform.position), Mathf.Infinity, 0.0f);
+        float step = rotationSpeed * Time.deltaTime;
+        Vector3 targetDirection = target.transform.position - transform.position;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
@@ -28,7 +33,4 @@ public class TargetingRotator : MonoBehaviour
     {
         this.target = target;
     }
-
-
-
 }
