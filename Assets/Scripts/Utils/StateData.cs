@@ -3,8 +3,6 @@ using UnityEngine;
 
 [System.Serializable]
 public class StateData {
-
-
     public Enums.PawnStates pawnState;
     public StateEvent calledEvent;
 }

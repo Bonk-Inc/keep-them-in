@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(Sence))]
 public class EnemyStateMachine : MonoBehaviour {
 
-    [SerializeField] private StateData[] states;
+    [SerializeField]
+    private StateData[] states;
 
     private Sence sence;
     private PawnMovement pawnMovement;
