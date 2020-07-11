@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2519286515128479712, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2047743
+      value: 7.79
       objectReference: {fileID: 0}
     - target: {fileID: 2519286515128479712, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
       propertyPath: m_LocalPosition.z
@@ -553,9 +553,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2519286515128479716, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
+      propertyPath: maxDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2519286515128479717, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
       propertyPath: m_Name
-      value: WallTurretPewPewThingy
+      value: WallTurretPewPewThingyDough
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519286515128479725, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e869f52bcf26b744ab08a9ecf1f2d030, type: 3}
