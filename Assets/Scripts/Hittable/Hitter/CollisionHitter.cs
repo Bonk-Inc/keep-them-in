@@ -6,7 +6,10 @@ public class CollisionHitter : MonoBehaviour
     {
         Transform other = collision.transform;
         IHittable hittable = other.GetComponent<IHittable>();
-        hittable?.Hit(new HittableParams());
+        hittable?.Hit(new HittableParams()
+        {
+            dmg = 1
+        });
         Destroy(this.gameObject);
     }
 }
