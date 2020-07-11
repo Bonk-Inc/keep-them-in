@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CollisionEnemyHitter : MonoBehaviour
+public class CollisionHitter : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject other = collision.collider.gameObject;
+        Transform other = collision.transform;
         IHittable hittable = other.GetComponent<IHittable>();
         hittable?.Hit(new HittableParams());
         Destroy(this.gameObject);
