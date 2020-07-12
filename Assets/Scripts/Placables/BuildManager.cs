@@ -27,12 +27,15 @@ public class BuildManager : MonoBehaviour
         order.transform.localPosition = new Vector3(0,0,0);
 
         order.Init(buildPreset.WorkersNeeded, buildPreset.BuildTime);
+
+        GameObject buildingPresetTemp = buildPreset.BuildingPreset;
+        int workersNeededTemp = buildPreset.WorkersNeeded;
+        Transform tileTransformTemp = tile.transform;
         order.OnBuildingFinished += () => 
         {
-            tile.PlaceObject(buildPreset.BuildingPreset, tile.transform.position);
-            availableWorkers += buildPreset.WorkersNeeded;
+            tile.PlaceObject(buildingPresetTemp, tileTransformTemp.position);
+            availableWorkers += workersNeededTemp;
             buildQueue.Remove(order);
-            Destroy(order);
         };
 
         tile.IsOcupied = true;
