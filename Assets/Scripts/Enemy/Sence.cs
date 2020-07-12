@@ -22,9 +22,9 @@ public class Sence : MonoBehaviour {
     private void Update() {
         Collider[] colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
         Array.Sort(colliders, new DistanceComparer(transform));
-        if (colliders.Length > 0 && target != colliders[0] && colliders[0].CompareTag(targetTag)) {
+        if (colliders.Length > 0 && colliders[0].CompareTag(targetTag)) {
             target = colliders[0];
-            MoveToTarget(colliders[0].transform.position);
+            MoveToTarget?.Invoke(colliders[0].transform.position);
         }
     }
 
