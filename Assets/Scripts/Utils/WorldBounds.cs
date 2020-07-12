@@ -14,9 +14,7 @@ public class WorldBounds
     public Transform CornerOne => cornerOne;
     public Transform CornerTwo => cornerTwo;
 
-    public Vector3 ClampPosition(Vector3 position)
-    {
-        Debug.Log($"Min: {MinPosition} Max: {MaxPosition}");
+    public Vector3 ClampPosition(Vector3 position) {
         position.x = Mathf.Clamp(position.x, MinPosition.x, MaxPosition.x);
         position.y = Mathf.Clamp(position.y, MinPosition.y, MaxPosition.y);
         position.z = Mathf.Clamp(position.z, MinPosition.z, MaxPosition.z);
