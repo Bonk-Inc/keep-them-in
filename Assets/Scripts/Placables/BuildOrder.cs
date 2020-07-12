@@ -13,6 +13,8 @@ public class BuildOrder : MonoBehaviour
     [SerializeField]
     private float timeNeeded = 5;
 
+    private bool building = false;
+
     private int workers = 0;
 
     public int Workers => workers;
@@ -34,7 +36,11 @@ public class BuildOrder : MonoBehaviour
 
         if(workersNeeded <= 0)
         {
-            StartCoroutine(BuildCoroutine());
+            if (!building)
+            {
+                building = true;
+                StartCoroutine(BuildCoroutine());
+            }
         }
     }
 

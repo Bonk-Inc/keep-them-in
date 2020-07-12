@@ -48,3 +48,4 @@ MonoBehaviour:
   size: {x: 30, y: 30}
   addedHeight: 0
   tilePreset: {fileID: 2657707036140811320, guid: 506253fe1e6a9a34788b804ec609e244, type: 3}
+  ocupiedList: []
