@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildTime: 4
   workersNeeded: 5
-  buildingPreset: {fileID: 0}
+  buildingPreset: {fileID: 3770084366450286323, guid: c88d122c518de8d4ca03e23acd575252, type: 3}
