@@ -33,7 +33,7 @@ public class CameraMovement : MonoBehaviour
 
     private void MoveCamera()
     {
-        if (!Input.GetMouseButton(2))
+        if (!Input.GetMouseButton(1))
             return;
         var movement = new Vector3(mouseDelta.x, 0, mouseDelta.y) * speed;
         var newPosition = transform.position;
