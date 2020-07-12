@@ -6,7 +6,7 @@ public class TownGrid : MonoBehaviour
 {
     [SerializeField]
     private BuildManager buildManager;
-
+    
     [SerializeField]
     private GameObject tileHolder;
 
@@ -14,10 +14,16 @@ public class TownGrid : MonoBehaviour
     private Vector2Int size;
 
     [SerializeField]
+    private float addedHeight = 0;
+
+    [SerializeField]
     private Tile tilePreset;
 
     [SerializeField]
-    private Tile[,] grid; 
+    private Tile[,] grid;
+
+    [SerializeField]
+    private Vector2Int[] ocupiedList;
 
     private void Start()
     {
@@ -34,7 +40,7 @@ public class TownGrid : MonoBehaviour
 
     private void CreateTile(int x, int y)
     {
-        Vector3 gridPosition = new Vector3(x, tileHolder.transform.position.y, y);
+        Vector3 gridPosition = new Vector3(x, addedHeight, y);
         Tile currentTile = Instantiate(tilePreset);
 
         currentTile.transform.SetParent(tileHolder.transform);
@@ -43,6 +49,15 @@ public class TownGrid : MonoBehaviour
         currentTile.Grid = this;
         currentTile.BuildManager = buildManager;
         grid[x, y] = currentTile;
+
+        Vector2Int currentLocation = new Vector2Int(x, y);
+        for (int i = 0; i < ocupiedList.Length; i++)
+        {
+            if (currentLocation == ocupiedList[i])
+                currentTile.IsOcupied = true;
+        }
+
+        currentTile.debugLocation = currentLocation;
     }
 
     public Vector2 FindTilePosition(Tile tile)
