@@ -30,4 +30,8 @@ public class BuildManager : MonoBehaviour
         
     }
 
+    public void ChangeBuildPreset(Buildable preset)
+    {
+        buildPreset = preset;
+    }
 }
