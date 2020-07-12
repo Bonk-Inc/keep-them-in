@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject enemy = Instantiate(enemyPrefab);
         enemy.transform.position = spawnPosition.position;
+
+        enemy.transform.SetParent(transform);
     }
 
 }
+    
