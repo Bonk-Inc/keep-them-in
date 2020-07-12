@@ -27,7 +27,10 @@ public class BuildManager : MonoBehaviour
 
     private void Update()
     {
-        
+        for (int i = 0; i < buildQueue.Count; i++)
+        {
+
+        }
     }
 
     public void ChangeBuildPreset(Buildable preset)

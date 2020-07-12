@@ -37,7 +37,7 @@ public class TownGrid : MonoBehaviour
 
     private void CreateTile(int x, int y)
     {
-        Vector3 gridPosition = new Vector3(x, tileHolder.transform.position.y + addedHeight, y);
+        Vector3 gridPosition = new Vector3(x, addedHeight, y);
         Tile currentTile = Instantiate(tilePreset);
 
         currentTile.transform.SetParent(tileHolder.transform);
