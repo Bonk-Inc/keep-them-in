@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private bool isBroken = false;
 
+    public Vector2Int debugLocation;
+
     private BuildManager buildManager;
     public BuildManager BuildManager { get => buildManager; set => buildManager = value; }
 
@@ -28,13 +30,11 @@ public class Tile : MonoBehaviour
 
     public void PlaceObject(GameObject placement, Vector3 position)
     {
-        if (IsOcupied)
-            return;
-
+        placement = Instantiate(placement);
         ocupiedPlacement = placement;
-        placement.transform.position = position;
-        //isOcupied = true;
 
+        placement.transform.SetParent(this.transform);
+        placement.transform.position = position;
     }
 
     public bool BreakDown(GameObject rubbage, Vector3 position)
