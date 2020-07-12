@@ -12,6 +12,10 @@ public class GameManegemtHandler : MonoBehaviour
     [SerializeField]
     private EnemySpawnTimer spawnTimer;
 
+    [Header("Game setup"), SerializeField]
+    private ModifyManager modifier;
+
+
     [Header("Events")]
     public UnityEvent OnLevelWon;
     public UnityEvent OnLevelLost;
@@ -20,7 +24,13 @@ public class GameManegemtHandler : MonoBehaviour
 
     private void Start()
     {
+        StartGame();
+    }
+
+    private void StartGame()
+    {
         SetupWinCondition();
+        modifier.ChooseRandomModifiers();
     }
 
     private void SetupWinCondition()
