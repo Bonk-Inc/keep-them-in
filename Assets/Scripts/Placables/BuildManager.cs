@@ -20,6 +20,11 @@ public class BuildManager : MonoBehaviour
 
     private List<BuildOrder> buildQueue = new List<BuildOrder>();
 
+    public int MaxAvailableWorkers => maxAvailableWorkers;
+    public int AvailableWorkers => availableWorkers;
+
+    public event Action<int> OnMaxAvailableWorkersChange, OnAvailableWorkersChange;
+
     public void RequestBuilding(Tile tile)
     {
         BuildOrder order = Instantiate(buildOrder);
@@ -35,6 +40,7 @@ public class BuildManager : MonoBehaviour
         {
             tile.PlaceObject(buildingPresetTemp, tileTransformTemp.position);
             availableWorkers += workersNeededTemp;
+            OnAvailableWorkersChange?.Invoke(availableWorkers);
             buildQueue.Remove(order);
         };
 
@@ -56,6 +62,7 @@ public class BuildManager : MonoBehaviour
                 if (buildQueue[i].WorkersNeeded <= availableWorkers)
                 {
                     availableWorkers -= buildQueue[i].WorkersNeeded;
+                    OnAvailableWorkersChange?.Invoke(availableWorkers);
                     buildQueue[i].AddWorkers(buildQueue[i].WorkersNeeded);
                     yield return new WaitForSeconds(0.3f);
                 }
