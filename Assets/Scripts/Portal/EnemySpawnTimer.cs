@@ -22,6 +22,8 @@ public class EnemySpawnTimer : MonoBehaviour
     public bool EnemiesSpawning { get; private set; }
     public float FinalSpawnrate { get => finalSpawnrate; set => finalSpawnrate = value; }
     public float TimeLeft => Mathf.Max(0, levelTime - elapesTime);
+    public float LevelTime => levelTime;
+    public float ElapsedTime => elapesTime;
 
     public event Action OnStartSpawning, OnSpawningFinished;
 
@@ -45,8 +47,9 @@ public class EnemySpawnTimer : MonoBehaviour
         float currentSpawnrate = startSpawnrate;
         while(GetCurvePosition(elapesTime) < 1)
         {
-            yield return new WaitForSeconds(1 / currentSpawnrate);
-            elapesTime += 1 / currentSpawnrate;
+            float spawntime = 1 / currentSpawnrate;
+            yield return new WaitForSeconds(spawntime);
+            elapesTime += spawntime;
             currentSpawnrate = GetCurrentSpawnrate(elapesTime);
             spawner.Spawn();
         }
