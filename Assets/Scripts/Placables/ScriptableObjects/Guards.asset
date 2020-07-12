@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec61930c12a0fd34ea45b92cb1446fe8, type: 3}
   m_Name: Guards
   m_EditorClassIdentifier: 
-  buildTime: 0
-  workersNeeded: 0
+  buildTime: 10
+  workersNeeded: 1
   buildingPreset: {fileID: 0}
