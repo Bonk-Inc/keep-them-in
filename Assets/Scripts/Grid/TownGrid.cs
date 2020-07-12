@@ -20,7 +20,10 @@ public class TownGrid : MonoBehaviour
     private Tile tilePreset;
 
     [SerializeField]
-    private Tile[,] grid; 
+    private Tile[,] grid;
+
+    [SerializeField]
+    private Vector2Int[] ocupiedList;
 
     private void Start()
     {
@@ -46,6 +49,13 @@ public class TownGrid : MonoBehaviour
         currentTile.Grid = this;
         currentTile.BuildManager = buildManager;
         grid[x, y] = currentTile;
+        Vector2Int currentLocation = new Vector2Int(x, y);
+        currentTile.debugLocation = currentLocation;
+        for (int i = 0; i < ocupiedList.Length; i++)
+        {
+            if (currentLocation == ocupiedList[i])
+                currentTile.IsOcupied = true;
+        }
     }
 
     public Vector2 FindTilePosition(Tile tile)

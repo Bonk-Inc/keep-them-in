@@ -19,7 +19,6 @@ public class BuildInput : MonoBehaviour
                     return;
 
                 hitTile.buildObject();
-                
             }
         }
     }

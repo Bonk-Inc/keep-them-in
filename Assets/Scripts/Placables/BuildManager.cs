@@ -10,6 +10,9 @@ public class BuildManager : MonoBehaviour
     private Buildable buildPreset;
 
     [SerializeField]
+    private BuildOrder buildOrder;
+
+    [SerializeField]
     private int maxAvailableWorkers = 15;
 
     private int availableWorkers = 15;
@@ -18,10 +21,17 @@ public class BuildManager : MonoBehaviour
 
     public void RequestBuilding(Tile tile)
     {
-        BuildOrder order = new BuildOrder(buildPreset.WorkersNeeded, buildPreset.BuildTime);
-        order.OnBuildingFinished += () => { tile.PlaceObject(buildPreset.BuildingPreset, tile.transform.position); };
-        tile.IsOcupied = true;
+        BuildOrder order = Instantiate(buildOrder);
+        order.Init(buildPreset.WorkersNeeded, buildPreset.BuildTime);
+        order.OnBuildingFinished += () => 
+        {
+            tile.PlaceObject(buildPreset.BuildingPreset, tile.transform.position);
+            availableWorkers += buildPreset.WorkersNeeded;
+            buildQueue.Remove(order);
+            Destroy(order);
+        };
 
+        tile.IsOcupied = true;
         buildQueue.Add(order);
     }
 
@@ -29,7 +39,10 @@ public class BuildManager : MonoBehaviour
     {
         for (int i = 0; i < buildQueue.Count; i++)
         {
+            if(buildQueue[i].WorkersNeeded <= availableWorkers)
+            {
 
+            }
         }
     }
 

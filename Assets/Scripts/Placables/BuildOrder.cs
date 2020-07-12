@@ -6,6 +6,9 @@ using System;
 public class BuildOrder : MonoBehaviour
 {
     [SerializeField]
+    private GameObject rubble;
+
+    [SerializeField]
     private int workersNeeded = 3;
     [SerializeField]
     private float timeNeeded = 5;
@@ -14,11 +17,11 @@ public class BuildOrder : MonoBehaviour
 
     public int WorkersNeeded => workersNeeded;
 
-    public Action OnBuildingFinished;
+    public event Action OnBuildingFinished;
 
-    public BuildOrder(int workers, float time)
+    public void Init(int workersNeeded, float time)
     {
-        workersNeeded = workers;
+        this.workersNeeded = workersNeeded;
         timeNeeded = time;
         workers = 0;
     }
@@ -39,10 +42,6 @@ public class BuildOrder : MonoBehaviour
         yield return new WaitForSeconds(timeNeeded);
 
         OnBuildingFinished?.Invoke();
-
+        rubble.SetActive(false);
     }
-
-
-
-
 }

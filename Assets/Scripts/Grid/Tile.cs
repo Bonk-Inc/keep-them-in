@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private bool isBroken = false;
 
+    public Vector2Int debugLocation;
+
     private BuildManager buildManager;
     public BuildManager BuildManager { get => buildManager; set => buildManager = value; }
 
