@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4790945649663154050}
   - component: {fileID: 4790945649663154051}
   - component: {fileID: 4790945649663154049}
+  - component: {fileID: 7571179426477381143}
+  - component: {fileID: 3346261302538401138}
   m_Layer: 9
   m_Name: Guard
   m_TagString: NPC
@@ -117,6 +119,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &7571179426477381143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790945649663154055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3796672e7cc2946b0203e31f69afbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkLayer:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  cooldowntime: 1
+  dmg:
+    dmg: 1
+--- !u!114 &3346261302538401138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790945649663154055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e9cb01d905e064db0688a706d1dca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - pawnState: 0
+    calledEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4790945649663154050}
+          m_TargetAssemblyTypeName: PawnMovement, Assembly-CSharp
+          m_MethodName: SetDestination
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - pawnState: 1
+    calledEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4790945649663154050}
+          m_TargetAssemblyTypeName: PawnMovement, Assembly-CSharp
+          m_MethodName: SetDestination
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &4790945649696144280
 PrefabInstance:
   m_ObjectHideFlags: 0

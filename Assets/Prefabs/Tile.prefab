@@ -49,6 +49,7 @@ MonoBehaviour:
   ocupiedPlacement: {fileID: 0}
   isOcupied: 0
   isBroken: 0
+  debugLocation: {x: 0, y: 0}
 --- !u!65 &5988681100593287974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,7 +70,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107723764073764947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

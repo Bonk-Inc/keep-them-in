@@ -11,9 +11,9 @@ public class EnemyStateMachine : MonoBehaviour {
     private Vector3 target = Vector3.zero;
 
     private void Start() {
-        SwitchState(Enums.PawnStates.Moving);
         sence = GetComponent<Sence>();
         pawnMovement = GetComponent<PawnMovement>();
+        SwitchState(Enums.PawnStates.Moving);
         sence.MoveToTarget += Chace;
     }
     private void OnDisable() {
