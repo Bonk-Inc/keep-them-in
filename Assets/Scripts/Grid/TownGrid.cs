@@ -6,12 +6,15 @@ public class TownGrid : MonoBehaviour
 {
     [SerializeField]
     private BuildManager buildManager;
-
+    
     [SerializeField]
     private GameObject tileHolder;
 
     [SerializeField]
     private Vector2Int size;
+
+    [SerializeField]
+    private float addedHeight = 0;
 
     [SerializeField]
     private Tile tilePreset;
@@ -34,7 +37,7 @@ public class TownGrid : MonoBehaviour
 
     private void CreateTile(int x, int y)
     {
-        Vector3 gridPosition = new Vector3(x, tileHolder.transform.position.y, y);
+        Vector3 gridPosition = new Vector3(x, tileHolder.transform.position.y + addedHeight, y);
         Tile currentTile = Instantiate(tilePreset);
 
         currentTile.transform.SetParent(tileHolder.transform);
