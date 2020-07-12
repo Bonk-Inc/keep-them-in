@@ -15,6 +15,7 @@ public class BuildOrder : MonoBehaviour
 
     private int workers = 0;
 
+    public int Workers => workers;
     public int WorkersNeeded => workersNeeded;
 
     public event Action OnBuildingFinished;
@@ -22,6 +23,7 @@ public class BuildOrder : MonoBehaviour
     public void Init(int workersNeeded, float time)
     {
         this.workersNeeded = workersNeeded;
+        print(this.workersNeeded + " " + workersNeeded);
         timeNeeded = time;
         workers = 0;
     }

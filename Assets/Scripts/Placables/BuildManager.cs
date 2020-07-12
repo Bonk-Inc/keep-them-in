@@ -15,6 +15,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField]
     private int maxAvailableWorkers = 15;
 
+    [SerializeField]
     private int availableWorkers = 15;
 
     private List<BuildOrder> buildQueue = new List<BuildOrder>();
@@ -22,6 +23,9 @@ public class BuildManager : MonoBehaviour
     public void RequestBuilding(Tile tile)
     {
         BuildOrder order = Instantiate(buildOrder);
+        order.transform.SetParent(tile.transform);
+        order.transform.localPosition = new Vector3(0,0,0);
+
         order.Init(buildPreset.WorkersNeeded, buildPreset.BuildTime);
         order.OnBuildingFinished += () => 
         {
@@ -35,14 +39,25 @@ public class BuildManager : MonoBehaviour
         buildQueue.Add(order);
     }
 
-    private void Update()
+    private void Start()
     {
-        for (int i = 0; i < buildQueue.Count; i++)
-        {
-            if(buildQueue[i].WorkersNeeded <= availableWorkers)
-            {
+        StartCoroutine(BuildQueueCoroutine());
+    }
 
+    private IEnumerator BuildQueueCoroutine()
+    {
+        while (true)
+        {
+            for (int i = 0; i < buildQueue.Count; i++)
+            {
+                if (buildQueue[i].WorkersNeeded <= availableWorkers)
+                {
+                    availableWorkers -= buildQueue[i].WorkersNeeded;
+                    buildQueue[i].AddWorkers(buildQueue[i].WorkersNeeded);
+                    yield return new WaitForSeconds(0.3f);
+                }
             }
+            yield return new WaitForSeconds(1);
         }
     }
 

@@ -49,13 +49,15 @@ public class TownGrid : MonoBehaviour
         currentTile.Grid = this;
         currentTile.BuildManager = buildManager;
         grid[x, y] = currentTile;
+
         Vector2Int currentLocation = new Vector2Int(x, y);
-        currentTile.debugLocation = currentLocation;
         for (int i = 0; i < ocupiedList.Length; i++)
         {
             if (currentLocation == ocupiedList[i])
                 currentTile.IsOcupied = true;
         }
+
+        currentTile.debugLocation = currentLocation;
     }
 
     public Vector2 FindTilePosition(Tile tile)
