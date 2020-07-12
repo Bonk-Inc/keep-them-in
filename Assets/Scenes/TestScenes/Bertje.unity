@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &51572744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 51572744, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+  m_PrefabInstance: {fileID: 2134581404473374664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cd463b385b4a9469c4d48d8770dced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &558361953
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +511,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startSpawnrate: 2
   finalSpawnrate: 80
-  levelTime: 3
+  levelTime: 180
   spawner: {fileID: 1157590162}
 --- !u!4 &1157590161
 Transform:
@@ -530,6 +541,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 558361953}
   spawnPosition: {fileID: 1157590161}
+--- !u!114 &1167265493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1167265493, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+  m_PrefabInstance: {fileID: 2134581404473374664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5dc50dc31c4ff4cb9e55f75a34ec41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1466115479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1466115479, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+  m_PrefabInstance: {fileID: 2134581404473374664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6349f1adb92dd2a41bbc0a3ee3899595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503092987
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +646,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535749433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1535749433, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+  m_PrefabInstance: {fileID: 2134581404473374664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15c8d01a4b9e294ab970c25135e0889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1883289834
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +760,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 51572744, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: modifiers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 51572744, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: modifiers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1466115479}
+    - target: {fileID: 51572744, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: modifiers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1167265493}
+    - target: {fileID: 51572744, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: modifiers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1535749433}
+    - target: {fileID: 1167265493, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1157590160}
+    - target: {fileID: 1535749433, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1157590160}
     - target: {fileID: 2134581405138990092, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -728,6 +796,10 @@ PrefabInstance:
       propertyPath: spawnTimer
       value: 
       objectReference: {fileID: 1157590160}
+    - target: {fileID: 2134581405138990093, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
+      propertyPath: modifier
+      value: 
+      objectReference: {fileID: 51572744}
     - target: {fileID: 2134581405138990094, guid: 1d0d068bfdef41c4f9fa765fc9ab9a79, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.0750856

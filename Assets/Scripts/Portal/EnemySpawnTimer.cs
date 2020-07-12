@@ -20,9 +20,17 @@ public class EnemySpawnTimer : MonoBehaviour
     float elapesTime = 0f;
 
     public bool EnemiesSpawning { get; private set; }
+    public float FinalSpawnrate { get => finalSpawnrate; set => finalSpawnrate = value; }
     public float TimeLeft => Mathf.Max(0, levelTime - elapesTime);
 
     public event Action OnStartSpawning, OnSpawningFinished;
+
+    public void SetLevelTime(float time)
+    {
+        levelTime = time;
+    }
+
+    
 
     public void Start()
     {
