@@ -25,16 +25,21 @@ public class TownGrid : MonoBehaviour
         {
             for (int y = 0; y < size.y; y++)
             {
-                Vector3 gridPosition = new Vector3(x, 0, y);
-                Tile currentTile = Instantiate(tilePreset);
-
-                currentTile.transform.SetParent(tileHolder.transform);
-                currentTile.transform.localPosition = gridPosition;
-
-                currentTile.Grid = this;
-                grid[x,y] = currentTile;
+                CreateTile(x, y);
             }
         }   
+    }
+
+    private void CreateTile(int x, int y)
+    {
+        Vector3 gridPosition = new Vector3(x, tileHolder.transform.position.y, y);
+        Tile currentTile = Instantiate(tilePreset);
+
+        currentTile.transform.SetParent(tileHolder.transform);
+        currentTile.transform.localPosition = gridPosition;
+
+        currentTile.Grid = this;
+        grid[x, y] = currentTile;
     }
 
     public Vector2 FindTilePosition(Tile tile)

@@ -13,20 +13,26 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private bool isBroken = false;
 
-    private TownGrid grid;
+    private BuildManager buildManager;
+    private BuildManager BuildManager { get => buildManager; set => buildManager = value; }
 
+    private TownGrid grid;
     public TownGrid Grid { get => grid; set => grid = value; }
 
-    public bool PlaceObject(GameObject placement, Vector3 position)
+    public void buildObject()
+    {
+        buildManager?.RequestBuilding(this);
+    }
+
+    public void PlaceObject(GameObject placement, Vector3 position)
     {
         if (isOcupied)
-            return false;
+            return;
 
         ocupiedPlacement = placement;
         placement.transform.position = position;
         isOcupied = true;
 
-        return true;
     }
 
     public bool BreakDown(GameObject rubbage, Vector3 position)
