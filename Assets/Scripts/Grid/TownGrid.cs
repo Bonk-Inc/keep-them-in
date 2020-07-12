@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TownGrid : MonoBehaviour
 {
+    [SerializeField]
+    private BuildManager buildManager;
 
     [SerializeField]
     private GameObject tileHolder;
@@ -39,6 +41,7 @@ public class TownGrid : MonoBehaviour
         currentTile.transform.localPosition = gridPosition;
 
         currentTile.Grid = this;
+        currentTile.BuildManager = buildManager;
         grid[x, y] = currentTile;
     }
 

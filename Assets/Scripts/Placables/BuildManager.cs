@@ -19,9 +19,15 @@ public class BuildManager : MonoBehaviour
     public void RequestBuilding(Tile tile)
     {
         BuildOrder order = new BuildOrder(buildPreset.WorkersNeeded, buildPreset.BuildTime);
-        order.OnBuildingFinished += tile.PlaceObject;
+        order.OnBuildingFinished += () => { tile.PlaceObject(buildPreset.BuildingPreset, tile.transform.position); };
+        tile.IsOcupied = true;
+
+        buildQueue.Add(order);
     }
 
-
+    private void Update()
+    {
+        
+    }
 
 }

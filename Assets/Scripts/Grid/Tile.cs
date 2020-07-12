@@ -14,24 +14,26 @@ public class Tile : MonoBehaviour
     private bool isBroken = false;
 
     private BuildManager buildManager;
-    private BuildManager BuildManager { get => buildManager; set => buildManager = value; }
+    public BuildManager BuildManager { get => buildManager; set => buildManager = value; }
 
     private TownGrid grid;
     public TownGrid Grid { get => grid; set => grid = value; }
+    public bool IsOcupied { get => isOcupied; set => isOcupied = value; }
 
     public void buildObject()
     {
-        buildManager?.RequestBuilding(this);
+        if(!IsOcupied && !isBroken)
+            buildManager?.RequestBuilding(this);
     }
 
     public void PlaceObject(GameObject placement, Vector3 position)
     {
-        if (isOcupied)
+        if (IsOcupied)
             return;
 
         ocupiedPlacement = placement;
         placement.transform.position = position;
-        isOcupied = true;
+        //isOcupied = true;
 
     }
 

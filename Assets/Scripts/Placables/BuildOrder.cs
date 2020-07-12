@@ -12,7 +12,9 @@ public class BuildOrder : MonoBehaviour
 
     private int workers = 0;
 
-    public Action<GameObject, Vector3> OnBuildingFinished;
+    public int WorkersNeeded => workersNeeded;
+
+    public Action OnBuildingFinished;
 
     public BuildOrder(int workers, float time)
     {
@@ -35,6 +37,8 @@ public class BuildOrder : MonoBehaviour
     private IEnumerator BuildCoroutine()
     {
         yield return new WaitForSeconds(timeNeeded);
+
+        OnBuildingFinished?.Invoke();
 
     }
 
